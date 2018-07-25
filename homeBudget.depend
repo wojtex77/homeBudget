@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1532557824 source:c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\main.cpp
+	<iostream>
+	<windows.h>
+	"users.h"
+
+1532557320 c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\users.h
+	<vector>
+	"xmlUsersFile.h"
+
+1532034782 c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\xmlusersfile.h
+	<iostream>
+	"user.h"
+	"Markup.h"
+	"xmlFile.h"
+	<vector>
+
+1532558868 c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\user.h
+
+1303070812 c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\markup.h
+	<stdlib.h>
+	<string.h>
+	<string>
+	<afx.h>
+
+1532034782 c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\xmlfile.h
+	<iostream>
+
+1303070812 source:c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\markup.cpp
+	<stdio.h>
+	"Markup.h"
+	<errno.h>
+	<iconv.h>
+	<windows.h>
+	<mbstring.h>
+
+1532552444 source:c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\user.cpp
+	<iostream>
+	"user.h"
+
+1532558000 source:c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\users.cpp
+	<iostream>
+	"users.h"
+	<windows.h>
+
+1532034675 source:c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\xmlfile.cpp
+	"xmlFile.h"
+	<stdlib.h>
+	<string>
+
+1532034473 source:c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\xmlusersfile.cpp
+	"xmlUsersFile.h"
+	<stdlib.h>
+	<string>
+
