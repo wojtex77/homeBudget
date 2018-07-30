@@ -98,3 +98,19 @@ bool Users::verifyVoidOfVector (){
     if (allUsers.empty()==true) return true;
     else return false;
 }
+
+void Users::changePassword (){
+    string currentPassword, newPassword;
+    cout << "Podaj obecne haslo: ";
+    cin >> currentPassword;
+    if (currentPassword==allUsers[validLoginIndexNumber].getPassword()){
+        cout << "Podaj nowe haslo: ";
+        cin >> newPassword;
+        allUsers[validLoginIndexNumber].setPassword(newPassword);
+        saveToXML();
+    }
+    else {
+        cout << "Niepoprawne haslo!";
+        Sleep(1500);
+    }
+}

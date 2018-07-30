@@ -21,5 +21,6 @@ public:
     int getLoggedUserID ();
     string getLoggedUserName ();
     string getLoggedUserSurname ();
+    void changePassword ();
 };
 

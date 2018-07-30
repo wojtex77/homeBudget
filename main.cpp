@@ -26,11 +26,29 @@ void showLoginMenu () {
     cout << endl << "Twoj wybor (potwierdz enterem): ";
 }
 
-void programMenu (int loggedUserID, string UserName, string UserSurname){
+void changePassword (Users &appUsers) {
+    appUsers.changePassword();
+}
+
+void programMenu (int loggedUserID, string UserName, string UserSurname, Users &appUsers){
     char choice='0';
     do {
         showProgramMenu(loggedUserID, UserName, UserSurname);
         cin >> choice;
+
+        switch(choice) {
+        case '9': {
+            changePassword(appUsers);
+            break;
+        }
+        case '0': {
+            break;
+        }
+        default: {
+            cout << "Niepoprawny wybor!";
+            Sleep(1500);
+        }
+        }
     } while (choice!='0');
 }
 
@@ -45,7 +63,7 @@ void logIn (Users &appUsers) {
         if (appUsers.findLogin(login)==true) {
             cout << "Haslo: ";
             cin >> password;
-            if (appUsers.verifyPassword(password)==true) programMenu(appUsers.getLoggedUserID(),appUsers.getLoggedUserName(),appUsers.getLoggedUserSurname());
+            if (appUsers.verifyPassword(password)==true) programMenu(appUsers.getLoggedUserID(),appUsers.getLoggedUserName(),appUsers.getLoggedUserSurname(), appUsers);
             else {
                 cout << "Haslo niezgodne";
                 Sleep(2000);
