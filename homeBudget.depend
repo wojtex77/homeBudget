@@ -15,7 +15,7 @@
 	"xmlFile.h"
 	<vector>
 
-1532558868 c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\user.h
+1532977116 c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\user.h
 
 1303070812 c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\markup.h
 	<stdlib.h>
@@ -34,7 +34,7 @@
 	<windows.h>
 	<mbstring.h>
 
-1532552444 source:c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\user.cpp
+1532558917 source:c:\users\admin\dropbox\przyszlyporgramista\c++ obiektowy\aplikacjabudzetowa\homebudget\user.cpp
 	<iostream>
 	"user.h"
 

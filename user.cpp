@@ -10,15 +10,35 @@ User::User () {
     password="";
     userID=0;
 }
+
+void User::capitalizeString (string &text)
+{
+    bool cap = true;
+
+    for(unsigned int i = 0; i <= text.length(); i++)
+    {
+        if (isalpha(text[i]) && cap == true)
+        {
+            text[i] = toupper(text[i]);
+            cap = false;
+        }
+        else if (isspace(text[i]))
+        {
+            cap = true;
+        }
+    }
+}
+
 void User::addData () {
+    cin.sync();
     cout << "------Twoj Budzet Domowy------"<<endl<<endl;
     cout << "Wpisz swoje dane" <<endl;
     cout << "Imie: ";
-    cin >> name;
-    changeFirstLetterToCapital(name);
+    getline(cin,name);
+    capitalizeString(name);
     cout << "Nazwisko: ";
-    cin >> surname;
-    changeFirstLetterToCapital(surname);
+    getline(cin,surname);
+    capitalizeString(surname);
     cout << "Login: ";
     cin >> login;
     cout << "Haslo: ";
@@ -61,13 +81,6 @@ string User::getPassword() {
     return password;
 }
 
-void User::changeFirstLetterToCapital (string &text){
-    char firstLetter=text[0];
-    int ASCIIvalue=ASCIItoInt(firstLetter);
-    if (ASCIIvalue<65){
-        text[0]=intToASCII(ASCIIvalue+23);
-    }
-}
 
 int User::ASCIItoInt (char letter){
     return int(letter);

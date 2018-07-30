@@ -4,9 +4,9 @@ class User {
 private:
     int userID;
     string name, surname, login, password;
-    void changeFirstLetterToCapital (string &text);
     int ASCIItoInt (char letter);
     char intToASCII (int number);
+    void capitalizeString (string &text);
 public:
     User ();
     void addData ();
