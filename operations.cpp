@@ -1,7 +1,8 @@
 #include "operations.h"
 
-void Operations::addNewOperation (int userId, string item, string date, float ammount)
+void Operations::addNewOperation ()
 {
+    int userId, string item, string date, float ammount
     Operation newOperation;
     newOperation.setUserId(userId);
     newOperation.setItem(item);

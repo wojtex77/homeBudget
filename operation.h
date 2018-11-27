@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <sstream>
 #include <time.h>
@@ -24,7 +25,6 @@ private:
     string convertIntToString (int number);
     string convertFloatToString (float number);
     int convertStringToInt (string number);
-    int convertStringToFloat (string number);
 
 
 public:
@@ -45,8 +45,11 @@ public:
     int getYearInt ();
     time_t getTime ();
 
+
+    void addData (string date);
     void convertIntToTimeStruct (int dayInt, int monthInt, int yearInt);
     void separateStringDateToInts(string date);
     void convertTimeStructToTime_t ();
+    float convertStringToFloat (string number);
 
 };

@@ -9,6 +9,6 @@ using namespace std;
 
 class xmlOperationsFile :public xmlFile {
 public:
-    void saveToXML (vector <Operation> &allOperations);
-    void loadFromXML (vector <Operation> *allOperations);
+    void saveToXML (vector <Operation> &allOperations, string filename);
+    void loadFromXML (vector <Operation> *allOperations, string filename);
 };

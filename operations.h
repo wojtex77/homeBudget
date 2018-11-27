@@ -10,7 +10,7 @@ class Operations
 private:
     vector <Operation> allOperations;
 public:
-    void addNewOperation (int userId, string item, string date, float ammount);
+    void addNewOperation ();
     void showAllOperations ();
     void sortOperations ();
 

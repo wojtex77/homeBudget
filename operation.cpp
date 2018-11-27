@@ -65,7 +65,7 @@ int Operation::convertStringToInt (string number)
 {
     return stoi (number);
 };
-int Operation::convertStringToFloat (string number)
+float Operation::convertStringToFloat (string number)
 {
     return stof (number);
 };
@@ -111,4 +111,14 @@ void Operation::convertTimeStructToTime_t (){
 };
 time_t Operation::getTime (){
     return actualDate;
+};
+
+void Operation::addData (string date){
+    cin.sync();
+    cout << "------Twoj Budzet Domowy------"<<endl<<endl;
+    cout << "Wpisz dane operacji" <<endl;
+    cout << "Opis operacji: ";
+    getline(cin,item);
+    cout << "Wartosc operacji: ";
+    cin>>ammount;
 };

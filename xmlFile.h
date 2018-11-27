@@ -9,6 +9,7 @@ private:
 
 public:
     int convertStringToInt (string data);
+    float convertStringToFloat (string data);
     void setFilename(string name);
     string getFilename ();
 };

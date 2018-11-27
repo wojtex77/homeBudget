@@ -35,12 +35,18 @@
 		<Unit filename="Markup.cpp" />
 		<Unit filename="Markup.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="operation.cpp" />
+		<Unit filename="operation.h" />
+		<Unit filename="operations.cpp" />
+		<Unit filename="operations.h" />
 		<Unit filename="user.cpp" />
 		<Unit filename="user.h" />
 		<Unit filename="users.cpp" />
 		<Unit filename="users.h" />
 		<Unit filename="xmlFile.cpp" />
 		<Unit filename="xmlFile.h" />
+		<Unit filename="xmlOperationsFile.cpp" />
+		<Unit filename="xmlOperationsFile.h" />
 		<Unit filename="xmlUsersFile.cpp" />
 		<Unit filename="xmlUsersFile.h" />
 		<Extensions>
