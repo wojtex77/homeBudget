@@ -98,7 +98,6 @@ bool Users::verifyVoidOfVector (){
     if (allUsers.empty()==true) return true;
     else return false;
 }
-
 void Users::changePassword (){
     string currentPassword, newPassword;
     cout << "Podaj obecne haslo: ";

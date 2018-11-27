@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include "users.h"
+#include "operations.h"
 
 using namespace std;
 void showProgramMenu (int loggedUserID, string UserName, string UserSurname){
