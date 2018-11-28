@@ -46,7 +46,6 @@ public:
     time_t getTime ();
 
 
-    void addData (string date);
     void convertIntToTimeStruct (int dayInt, int monthInt, int yearInt);
     void separateStringDateToInts(string date);
     void convertTimeStructToTime_t ();

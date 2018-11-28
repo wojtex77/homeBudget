@@ -34,10 +34,17 @@ void changePassword (Users &appUsers) {
 void programMenu (int loggedUserID, string UserName, string UserSurname, Users &appUsers){
     char choice='0';
     do {
+        Operations operations;
         showProgramMenu(loggedUserID, UserName, UserSurname);
         cin >> choice;
 
         switch(choice) {
+        case '8': {
+            operations.addData(loggedUserID);
+            operations.showAllOperations();
+            system("pause");
+            break;
+        }
         case '9': {
             changePassword(appUsers);
             break;

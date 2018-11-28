@@ -113,12 +113,4 @@ time_t Operation::getTime (){
     return actualDate;
 };
 
-void Operation::addData (string date){
-    cin.sync();
-    cout << "------Twoj Budzet Domowy------"<<endl<<endl;
-    cout << "Wpisz dane operacji" <<endl;
-    cout << "Opis operacji: ";
-    getline(cin,item);
-    cout << "Wartosc operacji: ";
-    cin>>ammount;
-};
+

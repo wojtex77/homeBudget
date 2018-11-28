@@ -139,3 +139,90 @@
 	"xmlFile.h"
 	<vector>
 
+1542954789 source:c:\users\wojciech siwek\documents\github\homebudget\markup.cpp
+	<stdio.h>
+	"Markup.h"
+	<errno.h>
+	<iconv.h>
+	<windows.h>
+	<mbstring.h>
+
+1542954789 c:\users\wojciech siwek\documents\github\homebudget\markup.h
+	<stdlib.h>
+	<string.h>
+	<string>
+	<afx.h>
+
+1542954789 source:c:\users\wojciech siwek\documents\github\homebudget\user.cpp
+	<iostream>
+	"user.h"
+
+1542954789 c:\users\wojciech siwek\documents\github\homebudget\user.h
+
+1542954789 source:c:\users\wojciech siwek\documents\github\homebudget\xmlusersfile.cpp
+	"xmlUsersFile.h"
+	<stdlib.h>
+	<string>
+
+1543407769 c:\users\wojciech siwek\documents\github\homebudget\xmlusersfile.h
+	<iostream>
+	"user.h"
+	"xmlFile.h"
+	<vector>
+
+1543407769 c:\users\wojciech siwek\documents\github\homebudget\xmlfile.h
+	<iostream>
+	"Markup.h"
+
+1543410284 source:c:\users\wojciech siwek\documents\github\homebudget\main.cpp
+	<iostream>
+	<windows.h>
+	"users.h"
+	"operations.h"
+
+1542954789 c:\users\wojciech siwek\documents\github\homebudget\users.h
+	<vector>
+	"xmlUsersFile.h"
+
+1543411248 c:\users\wojciech siwek\documents\github\homebudget\operations.h
+	<iostream>
+	<vector>
+	<algorithm>
+	<ctime>
+	"operation.h"
+
+1543408690 c:\users\wojciech siwek\documents\github\homebudget\operation.h
+	<iostream>
+	<string>
+	<sstream>
+	<time.h>
+	<vector>
+
+1543408690 source:c:\users\wojciech siwek\documents\github\homebudget\operation.cpp
+	"operation.h"
+
+1543407769 source:c:\users\wojciech siwek\documents\github\homebudget\users.cpp
+	<iostream>
+	"users.h"
+	<windows.h>
+
+1543407769 source:c:\users\wojciech siwek\documents\github\homebudget\xmlfile.cpp
+	"xmlFile.h"
+	<stdlib.h>
+	<string>
+
+1543407769 source:c:\users\wojciech siwek\documents\github\homebudget\xmloperationsfile.cpp
+	"xmloperationsFile.h"
+	<stdlib.h>
+	<string>
+
+1543407769 c:\users\wojciech siwek\documents\github\homebudget\xmloperationsfile.h
+	<iostream>
+	"operation.h"
+	"Markup.h"
+	"xmlFile.h"
+	<vector>
+
+1543409939 source:c:\users\wojciech siwek\documents\github\homebudget\operations.cpp
+	"operations.h"
+
