@@ -2,9 +2,6 @@
 
 void Operations::addNewOperation (int userId, string date, string item, float ammount)
 {
-//    int userId;
-//    string item, date;
-//    float ammount;
     Operation newOperation;
     newOperation.setUserId(userId);
     newOperation.setItem(item);
@@ -99,3 +96,12 @@ string Operations::convertIntToString (int number)
     string numberByString=ss.str();
     return numberByString;
 };
+float Operations::getSumAllOpers (int userId){
+    sumAllOpers=0;
+    for (int i=0; i < allOperations.size(); i++){
+        if (allOperations[i].getUserId()==userId)
+            sumAllOpers+=allOperations[i].getAmmount();
+    }
+    return sumAllOpers;
+};
+    float getSumAllOpers ();

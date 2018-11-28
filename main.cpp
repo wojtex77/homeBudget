@@ -33,15 +33,22 @@ void changePassword (Users &appUsers) {
 
 void programMenu (int loggedUserID, string UserName, string UserSurname, Users &appUsers){
     char choice='0';
+    Operations incomes, expenses;
     do {
-        Operations operations;
         showProgramMenu(loggedUserID, UserName, UserSurname);
         cin >> choice;
 
         switch(choice) {
+        case '1': {
+            incomes.addData(loggedUserID);
+            break;
+        }
+        case '2': {
+            expenses.addData(loggedUserID);
+            break;
+        }
         case '8': {
-            operations.addData(loggedUserID);
-            operations.showAllOperations();
+            cout <<endl<< "Suma wszystkich wydatkow wynosi " << expenses.getSumAllOpers(loggedUserID) << " zlotych"<<endl;
             system("pause");
             break;
         }
@@ -71,7 +78,7 @@ void logIn (Users &appUsers) {
         if (appUsers.findLogin(login)==true) {
             cout << "Haslo: ";
             cin >> password;
-            if (appUsers.verifyPassword(password)==true) programMenu(appUsers.getLoggedUserID(),appUsers.getLoggedUserName(),appUsers.getLoggedUserSurname(), appUsers);
+            if (appUsers.verifyPassword(password)==true)programMenu(appUsers.getLoggedUserID(),appUsers.getLoggedUserName(),appUsers.getLoggedUserSurname(), appUsers);
             else {
                 cout << "Haslo niezgodne";
                 Sleep(2000);

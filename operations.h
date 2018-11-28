@@ -12,12 +12,14 @@ private:
     vector <Operation> allOperations;
     string getActualDataFromSystem ();
     string convertIntToString (int number);
+    float sumAllOpers;
 
 public:
     void addNewOperation (int userId, string date, string item, float ammount);
     void showAllOperations ();
     void sortOperations ();
     void addData (int userId);
+    float getSumAllOpers (int userId);
 
     Operations();
 };

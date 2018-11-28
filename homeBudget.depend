@@ -174,7 +174,7 @@
 	<iostream>
 	"Markup.h"
 
-1543410284 source:c:\users\wojciech siwek\documents\github\homebudget\main.cpp
+1543412856 source:c:\users\wojciech siwek\documents\github\homebudget\main.cpp
 	<iostream>
 	<windows.h>
 	"users.h"
@@ -184,7 +184,7 @@
 	<vector>
 	"xmlUsersFile.h"
 
-1543411248 c:\users\wojciech siwek\documents\github\homebudget\operations.h
+1543412724 c:\users\wojciech siwek\documents\github\homebudget\operations.h
 	<iostream>
 	<vector>
 	<algorithm>
@@ -223,6 +223,6 @@
 	"xmlFile.h"
 	<vector>
 
-1543409939 source:c:\users\wojciech siwek\documents\github\homebudget\operations.cpp
+1543412738 source:c:\users\wojciech siwek\documents\github\homebudget\operations.cpp
 	"operations.h"
 
