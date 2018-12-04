@@ -105,3 +105,62 @@ float Operations::getSumAllOpers (int userId){
     return sumAllOpers;
 };
     float getSumAllOpers ();
+
+int Operations::convertStringToInt (string number)
+{
+    return stoi (number);
+};
+
+
+void Operations::separateStringDateToInts(string beginningDateByString, string endingDateByString)
+{
+    beginningDay=convertStringToInt(beginningDateByString.substr(0,2));
+    beginningMonth=convertStringToInt(beginningDateByString.substr(3,2));
+    beginningYear=convertStringToInt(beginningDateByString.substr(6,4));
+    endingDay=convertStringToInt(endingDateByString.substr(0,2));
+    endingMonth=convertStringToInt(endingDateByString.substr(3,2));
+    endingYear=convertStringToInt(endingDateByString.substr(6,4));
+};
+
+void Operations::convertIntToTimeStruct (int begDayInt, int begMonthInt, int begYearInt, int endDayInt, int endMonthInt, int endYearInt){
+    time ( &beginningDate );
+    beginTimeInfo = localtime ( &beginningDate );
+    beginTimeInfo->tm_year = begYearInt - 1900;
+    beginTimeInfo->tm_mon = begMonthInt - 1;
+    beginTimeInfo->tm_mday = begYearInt;
+
+    time ( &endingDate );
+    endTimeInfo = localtime ( &endingDate);
+    endTimeInfo->tm_year = endYearInt - 1900;
+    endTimeInfo->tm_mon = endMonthInt - 1;
+    endTimeInfo->tm_mday = endYearInt;
+};
+
+void Operations::convertTimeStructToTime_t (){
+    beginningDate = mktime(beginTimeInfo);
+    endingDate = mktime(endTimeInfo);
+};
+
+void Operations::selectOperationsByDateAndID (string beginingDateString, string endingDateString, int userId){
+    separateStringDateToInts(beginingDateString,endingDateString);
+    convertIntToTimeStruct(beginningDay, beginningMonth, beginningYear, endingDay, endingMonth, endingYear);
+    convertTimeStructToTime_t();
+
+    for (int i=0; i<allOperations.size(); i++)
+    {
+        if ((allOperations[i].getTime()>=beginningDate) && (allOperations[i].getTime()<=endingDate) && (userId==allOperations[i].getUserId()))
+            selectedOperations.push_back(allOperations[i]);
+    }
+};
+
+void Operations::showSelectedOperations()
+{
+    for (int i=0; i<selectedOperations.size(); i++)
+    {
+        cout << selectedOperations[i].getUserId() << " | ";
+        cout << selectedOperations[i].getOperationId() << " | ";
+        cout << selectedOperations[i].getItem() << " | ";
+        cout << selectedOperations[i].getDate()<< " | ";
+        cout << selectedOperations[i].getAmmount() << " | " << endl;
+    }
+};

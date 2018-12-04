@@ -47,6 +47,12 @@ void programMenu (int loggedUserID, string UserName, string UserSurname, Users &
             expenses.addData(loggedUserID);
             break;
         }
+        case '5': {
+            expenses.selectOperationsByDateAndID("01-12-2018", "30-12-2018", loggedUserID);
+            expenses.showSelectedOperations();
+            system("pause");
+            break;
+        }
         case '8': {
             cout <<endl<< "Suma wszystkich wydatkow wynosi " << expenses.getSumAllOpers(loggedUserID) << " zlotych"<<endl;
             system("pause");
