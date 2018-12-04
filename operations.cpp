@@ -127,13 +127,13 @@ void Operations::convertIntToTimeStruct (int begDayInt, int begMonthInt, int beg
     beginTimeInfo = localtime ( &beginningDate );
     beginTimeInfo->tm_year = begYearInt - 1900;
     beginTimeInfo->tm_mon = begMonthInt - 1;
-    beginTimeInfo->tm_mday = begYearInt;
+    beginTimeInfo->tm_mday = begDayInt;
 
     time ( &endingDate );
     endTimeInfo = localtime ( &endingDate);
     endTimeInfo->tm_year = endYearInt - 1900;
     endTimeInfo->tm_mon = endMonthInt - 1;
-    endTimeInfo->tm_mday = endYearInt;
+    endTimeInfo->tm_mday = endDayInt;
 };
 
 void Operations::convertTimeStructToTime_t (){
