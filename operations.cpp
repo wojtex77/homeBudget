@@ -42,8 +42,10 @@ void Operations::sortOperations ()
           allOperations.end(),
           [](Operation & one, Operation & two){return one.getTime () < two.getTime ();});
 };
-Operations::Operations()
+Operations::Operations(string operationName)
 {
+    setTypename(operationName);
+    loadFromXML(filename);
 };
 
 void Operations::addData (int userId){
@@ -67,6 +69,7 @@ void Operations::addData (int userId){
     cout << "Wartosc operacji: ";
     cin>>ammount;
     addNewOperation(userId, date, item, ammount);
+    saveToXML(filename);
 };
 
 string Operations::getActualDataFromSystem (){
@@ -136,6 +139,10 @@ void Operations::convertIntToTimeStruct (int begDayInt, int begMonthInt, int beg
     endTimeInfo->tm_mday = endDayInt;
 };
 
+void Operations::setTypename (string name){
+    filename=name;
+};
+
 void Operations::convertTimeStructToTime_t (){
     beginningDate = mktime(beginTimeInfo);
     endingDate = mktime(endTimeInfo);
@@ -163,4 +170,15 @@ void Operations::showSelectedOperations()
         cout << selectedOperations[i].getDate()<< " | ";
         cout << selectedOperations[i].getAmmount() << " | " << endl;
     }
+};
+void Operations::saveToXML (string filename){
+    xmlOperationsFile file (filename);
+    file.saveToXML(allOperations);
+};
+
+void Operations::loadFromXML (string filename){
+    xmlOperationsFile file (filename);
+    allOperations.clear();
+    vector<Operation> * allOperationsPointer = &allOperations;
+    file.loadFromXML(allOperationsPointer);
 };

@@ -3,6 +3,7 @@
 #include <sstream>
 #include <time.h>
 #include <vector>
+#pragma once
 
 using namespace std;
 

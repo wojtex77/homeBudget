@@ -53,7 +53,7 @@
 	<stdlib.h>
 	<string>
 
-1543956993 source:c:\users\wojtek\documents\github\homebudget\main.cpp
+1545940165 source:c:\users\wojtek\documents\github\homebudget\main.cpp
 	<iostream>
 	<windows.h>
 	"users.h"
@@ -77,7 +77,7 @@
 	<string>
 	<afx.h>
 
-1543351894 c:\users\wojtek\documents\github\homebudget\xmlfile.h
+1545940990 c:\users\wojtek\documents\github\homebudget\xmlfile.h
 	<iostream>
 	"Markup.h"
 
@@ -111,29 +111,30 @@
 1543952507 source:c:\users\wojtek\documents\github\homebudget\operation.cpp
 	"operation.h"
 
-1543952507 c:\users\wojtek\documents\github\homebudget\operation.h
+1545940207 c:\users\wojtek\documents\github\homebudget\operation.h
 	<iostream>
 	<string>
 	<sstream>
 	<time.h>
 	<vector>
 
-1543958297 source:c:\users\wojtek\documents\github\homebudget\operations.cpp
+1545941882 source:c:\users\wojtek\documents\github\homebudget\operations.cpp
 	"operations.h"
 
-1543956796 c:\users\wojtek\documents\github\homebudget\operations.h
+1545941628 c:\users\wojtek\documents\github\homebudget\operations.h
 	<iostream>
 	<vector>
 	<algorithm>
 	<ctime>
 	"operation.h"
+	"xmlOperationsFile.h"
 
-1543351919 source:c:\users\wojtek\documents\github\homebudget\xmloperationsfile.cpp
+1545940924 source:c:\users\wojtek\documents\github\homebudget\xmloperationsfile.cpp
 	"xmloperationsFile.h"
 	<stdlib.h>
 	<string>
 
-1543351784 c:\users\wojtek\documents\github\homebudget\xmloperationsfile.h
+1545940990 c:\users\wojtek\documents\github\homebudget\xmloperationsfile.h
 	<iostream>
 	"operation.h"
 	"Markup.h"

@@ -3,7 +3,7 @@
 #include <string>
 
 
-void xmlOperationsFile::saveToXML(vector <Operation> &allOperations, string filename){
+void xmlOperationsFile::saveToXML(vector <Operation> &allOperations){
     int vectorSize=allOperations.size();
     string fullname=filename+".xml";
 
@@ -25,7 +25,7 @@ void xmlOperationsFile::saveToXML(vector <Operation> &allOperations, string file
 };
 
 
-void xmlOperationsFile::loadFromXML(vector <Operation> *allOperations, string filename){
+void xmlOperationsFile::loadFromXML(vector <Operation> *allOperations){
     CMarkup operationsFile;
     Operation singleOperation;
     string fullname=filename+".xml";
@@ -49,6 +49,9 @@ void xmlOperationsFile::loadFromXML(vector <Operation> *allOperations, string fi
         operationsFile.OutOfElem();
         allOperations->push_back(singleOperation);
     }
-
 };
+    xmlOperationsFile::xmlOperationsFile (string filename){
+        setFilename(filename);
+};
+
 

@@ -33,7 +33,7 @@ void changePassword (Users &appUsers) {
 
 void programMenu (int loggedUserID, string UserName, string UserSurname, Users &appUsers){
     char choice='0';
-    Operations incomes, expenses;
+    Operations incomes("incomes") , expenses("expenses");
     do {
         showProgramMenu(loggedUserID, UserName, UserSurname);
         cin >> choice;

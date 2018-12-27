@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <ctime>
 #include "operation.h"
+#include "xmlOperationsFile.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ private:
     string getActualDataFromSystem ();
     string convertIntToString (int number);
     float sumAllOpers;
+    string filename;
 
     struct tm * beginTimeInfo;
     struct tm * endTimeInfo;
@@ -24,6 +26,9 @@ private:
     void separateStringDateToInts(string beginningDateByString, string endingDateByString);
     void convertTimeStructToTime_t ();
     int convertStringToInt (string number);
+    void saveToXML (string filename);
+    void loadFromXML (string filename);
+
 
 public:
     void addNewOperation (int userId, string date, string item, float ammount);
@@ -34,6 +39,7 @@ public:
     float getSumAllOpers (int userId);
     void selectOperationsByDateAndID (string beginingDateString, string endingDateString, int userId);
     float getSumSelectedOperations ();
+    void setTypename (string name);
 
-    Operations();
+    Operations(string operationName);
 };
