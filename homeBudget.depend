@@ -53,11 +53,13 @@
 	<stdlib.h>
 	<string>
 
-1546035082 source:c:\users\wojtek\documents\github\homebudget\main.cpp
+1546038859 source:c:\users\wojtek\documents\github\homebudget\main.cpp
 	<iostream>
 	<windows.h>
 	"users.h"
 	"operations.h"
+	"dateCheck.h"
+	"programMessages.h"
 
 1542838081 c:\users\wojtek\documents\github\homebudget\users.h
 	<vector>
@@ -227,4 +229,11 @@
 
 1543412738 source:c:\users\wojciech siwek\documents\github\homebudget\operations.cpp
 	"operations.h"
+
+1546039013 c:\users\wojtek\documents\github\homebudget\datecheck.h
+	<string>
+
+1546039106 c:\users\wojtek\documents\github\homebudget\programmessages.h
+	<string>
+	<map>
 

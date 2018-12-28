@@ -2,6 +2,8 @@
 #include <windows.h>
 #include "users.h"
 #include "operations.h"
+#include "dateCheck.h"
+#include "programMessages.h"
 
 using namespace std;
 void showProgramMenu (int loggedUserID, string UserName, string UserSurname){
@@ -67,9 +69,14 @@ void programMenu (int loggedUserID, string UserName, string UserSurname, Users &
         }
         case '5': {
             string begininigDate, endingDate;
+            int error;
             cin.sync();
             cout << "Podaj date poczatkowa zakresu (dd-mm-rrrr): ";
-            cin >> begininigDate;
+            do {
+                cin >> begininigDate;
+                error=checkDateFormat(begininigDate);
+                if (error!=0) cout << takeProgramMessage(error)<<endl;
+            } while (checkDateFormat(begininigDate)==false);
             cout << "Podaj date koncowa zakresu (dd-mm-rrrr): ";
             cin >> endingDate;
 
