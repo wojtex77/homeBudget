@@ -50,6 +50,7 @@ public:
     void convertIntToTimeStruct (int dayInt, int monthInt, int yearInt);
     void separateStringDateToInts(string date);
     void convertTimeStructToTime_t ();
+    void convertTimeStructToTime_t_2 ();
     float convertStringToFloat (string number);
 
 };

@@ -29,6 +29,7 @@ void xmlOperationsFile::loadFromXML(vector <Operation> *allOperations){
     CMarkup operationsFile;
     Operation singleOperation;
     string fullname=filename+".xml";
+    string date;
 
     operationsFile.Load( fullname );
     operationsFile.FindElem();
@@ -40,13 +41,18 @@ void xmlOperationsFile::loadFromXML(vector <Operation> *allOperations){
         operationsFile.FindElem("userId");
         singleOperation.setUserId(convertStringToInt(operationsFile.GetData()));
         operationsFile.FindElem("date");
-        singleOperation.setDate(operationsFile.GetData());
+        date=operationsFile.GetData();
+        singleOperation.setDate(date);
         operationsFile.FindElem("item");
         singleOperation.setItem(operationsFile.GetData());
         operationsFile.FindElem("ammount");
         singleOperation.setAmmount(singleOperation.convertStringToFloat(operationsFile.GetData()));
         operationsFile.ResetMainPos();
         operationsFile.OutOfElem();
+        singleOperation.separateStringDateToInts(date);
+        singleOperation.convertIntToTimeStruct(singleOperation.getDayInt(), singleOperation.getMonthInt(), singleOperation.getYearInt());
+        singleOperation.convertTimeStructToTime_t();
+
         allOperations->push_back(singleOperation);
     }
 };

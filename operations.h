@@ -22,9 +22,8 @@ private:
     int beginningDay, beginningMonth, beginningYear, endingDay, endingMonth, endingYear;
     time_t beginningDate, endingDate;
 
-    void convertIntToTimeStruct (int begDayInt, int begMonthInt, int begYearInt, int endDayInt, int endMonthInt, int endYearInt);
+    void convertIntToTime_t (int begDayInt, int begMonthInt, int begYearInt, int endDayInt, int endMonthInt, int endYearInt);
     void separateStringDateToInts(string beginningDateByString, string endingDateByString);
-    void convertTimeStructToTime_t ();
     int convertStringToInt (string number);
     void saveToXML (string filename);
     void loadFromXML (string filename);
@@ -32,7 +31,7 @@ private:
 
 public:
     void addNewOperation (int userId, string date, string item, float ammount);
-    void showAllOperations ();
+    void showAllOperationsByUser (int loggedUserID);
     void showSelectedOperations ();
     void sortOperations ();
     void addData (int userId);

@@ -14,6 +14,9 @@ void Operation::setUserId(int idOfUser)
 void Operation::setDate(string inputDate)
 {
     date=inputDate;
+    separateStringDateToInts(date);
+    convertIntToTimeStruct(dayInt,monthInt,yearInt);
+    convertTimeStructToTime_t_2();
 };
 void Operation::setItem(string inputItem)
 {
@@ -108,6 +111,9 @@ int Operation::getYearInt ()
 
 void Operation::convertTimeStructToTime_t (){
     actualDate=mktime(timeinfo);
+};
+void Operation::convertTimeStructToTime_t_2 (){
+    rawtime=mktime(timeinfo);
 };
 time_t Operation::getTime (){
     return actualDate;

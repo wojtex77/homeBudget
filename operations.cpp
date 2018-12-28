@@ -1,7 +1,6 @@
 #include "operations.h"
 
-void Operations::addNewOperation (int userId, string date, string item, float ammount)
-{
+void Operations::addNewOperation (int userId, string date, string item, float ammount){
     Operation newOperation;
     newOperation.setUserId(userId);
     newOperation.setItem(item);
@@ -22,32 +21,25 @@ void Operations::addNewOperation (int userId, string date, string item, float am
     newOperation.setOperationId(newOperationId);
     allOperations.push_back(newOperation);
 };
-
-void Operations::showAllOperations()
-{
+void Operations::showAllOperationsByUser (int loggedUserID){
     for (int i=0; i<allOperations.size(); i++)
     {
-        cout << allOperations[i].getUserId() << " | ";
-        cout << allOperations[i].getOperationId() << " | ";
-        cout << allOperations[i].getItem() << " | ";
-        cout << allOperations[i].getDate()<< " | ";
-        cout << allOperations[i].getAmmount() << " | " << endl;
+        if (allOperations[i].getUserId()==loggedUserID){
+            cout << allOperations[i].getDate()<< " | ";
+            cout << allOperations[i].getAmmount() << " PLN | ";
+            cout << allOperations[i].getItem() <<endl;
+        }
     }
 };
-
-
-void Operations::sortOperations ()
-{
+void Operations::sortOperations (){
     sort(allOperations.begin(),
           allOperations.end(),
           [](Operation & one, Operation & two){return one.getTime () < two.getTime ();});
 };
-Operations::Operations(string operationName)
-{
+Operations::Operations(string operationName){
     setTypename(operationName);
     loadFromXML(filename);
 };
-
 void Operations::addData (int userId){
     string item, date;
     char choice;
@@ -56,13 +48,15 @@ void Operations::addData (int userId){
     cout << "------Twoj Budzet Domowy------"<<endl<<endl;
     cout << "Wpisz dane operacji" <<endl;
     cout << "Czy operacja z data dzisiejsza? t/n" <<endl;
-    cin >> choice;
-    if (choice=='t') date=getActualDataFromSystem();
-    else if (choice=='n'){
-        cout << "Wpisz date w formacie dd-mm-rrrr: ";
-        cin >> date;
-    }
-    else cout << "Niepoprawny wybor" << endl;
+    do {
+        cin >> choice;
+        if (choice=='t') date=getActualDataFromSystem();
+        else if (choice=='n'){
+            cout << "Wpisz date w formacie dd-mm-rrrr: ";
+            cin >> date;
+        }
+        else cout << "Niepoprawny wybor, wpisz ""t"" lub ""n"""<< endl;
+    } while (choice!='t' && choice!='n');
     cin.sync();
     cout << "Opis operacji: ";
     getline(cin,item);
@@ -71,7 +65,6 @@ void Operations::addData (int userId){
     addNewOperation(userId, date, item, ammount);
     saveToXML(filename);
 };
-
 string Operations::getActualDataFromSystem (){
     time_t systemTime;
     time (&systemTime);
@@ -91,9 +84,7 @@ string Operations::getActualDataFromSystem (){
     string date=stringDay+"-"+stringMonth+"-"+stringYear;
     return date;
 };
-
-string Operations::convertIntToString (int number)
-{
+string Operations::convertIntToString (int number){
     stringstream ss;
     ss << number;
     string numberByString=ss.str();
@@ -107,16 +98,13 @@ float Operations::getSumAllOpers (int userId){
     }
     return sumAllOpers;
 };
-    float getSumAllOpers ();
-
-int Operations::convertStringToInt (string number)
-{
+float getSumAllOpers (){
+    return 0;
+};
+int Operations::convertStringToInt (string number){
     return stoi (number);
 };
-
-
-void Operations::separateStringDateToInts(string beginningDateByString, string endingDateByString)
-{
+void Operations::separateStringDateToInts(string beginningDateByString, string endingDateByString){
     beginningDay=convertStringToInt(beginningDateByString.substr(0,2));
     beginningMonth=convertStringToInt(beginningDateByString.substr(3,2));
     beginningYear=convertStringToInt(beginningDateByString.substr(6,4));
@@ -124,44 +112,38 @@ void Operations::separateStringDateToInts(string beginningDateByString, string e
     endingMonth=convertStringToInt(endingDateByString.substr(3,2));
     endingYear=convertStringToInt(endingDateByString.substr(6,4));
 };
-
-void Operations::convertIntToTimeStruct (int begDayInt, int begMonthInt, int begYearInt, int endDayInt, int endMonthInt, int endYearInt){
+void Operations::convertIntToTime_t (int begDayInt, int begMonthInt, int begYearInt, int endDayInt, int endMonthInt, int endYearInt){
     time ( &beginningDate );
+    time ( &endingDate );
+    endTimeInfo = localtime ( &endingDate);
     beginTimeInfo = localtime ( &beginningDate );
+
     beginTimeInfo->tm_year = begYearInt - 1900;
     beginTimeInfo->tm_mon = begMonthInt - 1;
     beginTimeInfo->tm_mday = begDayInt;
+    beginningDate = mktime(beginTimeInfo);
 
-    time ( &endingDate );
-    endTimeInfo = localtime ( &endingDate);
     endTimeInfo->tm_year = endYearInt - 1900;
     endTimeInfo->tm_mon = endMonthInt - 1;
     endTimeInfo->tm_mday = endDayInt;
+    endingDate = mktime(endTimeInfo);
 };
-
 void Operations::setTypename (string name){
     filename=name;
 };
-
-void Operations::convertTimeStructToTime_t (){
-    beginningDate = mktime(beginTimeInfo);
-    endingDate = mktime(endTimeInfo);
-};
-
 void Operations::selectOperationsByDateAndID (string beginingDateString, string endingDateString, int userId){
     separateStringDateToInts(beginingDateString,endingDateString);
-    convertIntToTimeStruct(beginningDay, beginningMonth, beginningYear, endingDay, endingMonth, endingYear);
-    convertTimeStructToTime_t();
+    convertIntToTime_t(beginningDay, beginningMonth, beginningYear, endingDay, endingMonth, endingYear);
 
     for (int i=0; i<allOperations.size(); i++)
     {
-        if ((allOperations[i].getTime()>=beginningDate) && (allOperations[i].getTime()<=endingDate) && (userId==allOperations[i].getUserId()))
+        unsigned long long int timeFromVector=allOperations[i].getTime();
+        int idFromVector=allOperations[i].getUserId();
+        if ((timeFromVector>=beginningDate) && (timeFromVector<=endingDate) && (userId==idFromVector))
             selectedOperations.push_back(allOperations[i]);
     }
 };
-
-void Operations::showSelectedOperations()
-{
+void Operations::showSelectedOperations(){
     for (int i=0; i<selectedOperations.size(); i++)
     {
         cout << selectedOperations[i].getUserId() << " | ";
@@ -175,7 +157,6 @@ void Operations::saveToXML (string filename){
     xmlOperationsFile file (filename);
     file.saveToXML(allOperations);
 };
-
 void Operations::loadFromXML (string filename){
     xmlOperationsFile file (filename);
     allOperations.clear();
