@@ -14,7 +14,7 @@ private:
     vector <Operation> selectedOperations;
     string getActualDataFromSystem ();
     string convertIntToString (int number);
-    float sumAllOpers;
+    float sumAllOpers, sumSelectedOpers;
     string filename;
 
     struct tm * beginTimeInfo;
@@ -37,7 +37,7 @@ public:
     void addData (int userId);
     float getSumAllOpers (int userId);
     void selectOperationsByDateAndID (string beginingDateString, string endingDateString, int userId);
-    float getSumSelectedOperations ();
+    float getSumSelectedOperations (int userID);
     void setTypename (string name);
 
     Operations(string operationName);

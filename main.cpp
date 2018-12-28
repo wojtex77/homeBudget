@@ -31,6 +31,24 @@ void changePassword (Users &appUsers) {
     appUsers.changePassword();
 }
 
+void presentData (string beginingDate, string endingDate, Operations& incomes, Operations& expenses, int loggedUserID)
+{
+    system("cls");
+    cout << "RAPORT ZA OKRES " << beginingDate << " - " << endingDate << " :";
+    cout <<endl<< "PRZYCHODY:" << endl;
+    incomes.selectOperationsByDateAndID(beginingDate, endingDate, loggedUserID);
+    incomes.showSelectedOperations();
+    cout <<"_______________________________________________"<<endl<< "Suma przychodow wynosi: " << incomes.getSumSelectedOperations(loggedUserID) << " PLN" <<endl<<endl;
+
+    cout << "WYDATKI:" << endl;
+    expenses.selectOperationsByDateAndID(beginingDate, endingDate, loggedUserID);
+    expenses.showSelectedOperations();
+    cout <<"_______________________________________________"<<endl<< "Suma wydatkow wynosi: " << expenses.getSumSelectedOperations(loggedUserID) << " PLN" <<endl<<endl;
+    cout <<endl<<"_______________________________________________"<< endl << "BILANS WYNOSI: " << incomes.getSumSelectedOperations(loggedUserID) - expenses.getSumSelectedOperations(loggedUserID)<< " PLN" << endl<<endl;
+
+    system("pause");
+
+}
 void programMenu (int loggedUserID, string UserName, string UserSurname, Users &appUsers){
     char choice='0';
     Operations incomes("incomes") , expenses("expenses");
@@ -48,9 +66,15 @@ void programMenu (int loggedUserID, string UserName, string UserSurname, Users &
             break;
         }
         case '5': {
-            expenses.selectOperationsByDateAndID("02-12-2018", "30-12-2018", loggedUserID);
-            expenses.showSelectedOperations();
-            system("pause");
+            string begininigDate, endingDate;
+            cin.sync();
+            cout << "Podaj date poczatkowa zakresu (dd-mm-rrrr): ";
+            cin >> begininigDate;
+            cout << "Podaj date koncowa zakresu (dd-mm-rrrr): ";
+            cin >> endingDate;
+
+            presentData(begininigDate,endingDate, incomes, expenses,loggedUserID);
+
             break;
         }
         case '8': {

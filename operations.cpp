@@ -98,8 +98,13 @@ float Operations::getSumAllOpers (int userId){
     }
     return sumAllOpers;
 };
-float getSumAllOpers (){
-    return 0;
+float Operations::getSumSelectedOperations(int userID){
+    sumSelectedOpers=0;
+    for (int i=0; i < selectedOperations.size(); i++){
+        if (selectedOperations[i].getUserId()==userID)
+            sumSelectedOpers+=selectedOperations[i].getAmmount();
+    }
+    return sumSelectedOpers;
 };
 int Operations::convertStringToInt (string number){
     return stoi (number);
@@ -121,17 +126,28 @@ void Operations::convertIntToTime_t (int begDayInt, int begMonthInt, int begYear
     beginTimeInfo->tm_year = begYearInt - 1900;
     beginTimeInfo->tm_mon = begMonthInt - 1;
     beginTimeInfo->tm_mday = begDayInt;
+
+    beginTimeInfo->tm_sec = 5; // <- added to have always same hour, minutes and seconds for selecting operations by date
+    beginTimeInfo->tm_min = 5;
+    beginTimeInfo->tm_hour = 5;
+
     beginningDate = mktime(beginTimeInfo);
 
     endTimeInfo->tm_year = endYearInt - 1900;
     endTimeInfo->tm_mon = endMonthInt - 1;
     endTimeInfo->tm_mday = endDayInt;
+
+    endTimeInfo->tm_sec = 5; // <- added to have always same hour, minutes and seconds for selecting operations by date
+    endTimeInfo->tm_min = 5;
+    endTimeInfo->tm_hour = 5;
+
     endingDate = mktime(endTimeInfo);
 };
 void Operations::setTypename (string name){
     filename=name;
 };
 void Operations::selectOperationsByDateAndID (string beginingDateString, string endingDateString, int userId){
+    selectedOperations.clear();
     separateStringDateToInts(beginingDateString,endingDateString);
     convertIntToTime_t(beginningDay, beginningMonth, beginningYear, endingDay, endingMonth, endingYear);
 
@@ -146,12 +162,9 @@ void Operations::selectOperationsByDateAndID (string beginingDateString, string 
 void Operations::showSelectedOperations(){
     for (int i=0; i<selectedOperations.size(); i++)
     {
-        cout << selectedOperations[i].getUserId() << " | ";
-        cout << selectedOperations[i].getOperationId() << " | ";
-        cout << selectedOperations[i].getItem() << " | ";
         cout << selectedOperations[i].getDate()<< " | ";
-        cout << selectedOperations[i].getAmmount() << " | " << endl;
-    }
+        cout << selectedOperations[i].getAmmount() << " PLN | ";
+        cout << selectedOperations[i].getItem() <<endl;    }
 };
 void Operations::saveToXML (string filename){
     xmlOperationsFile file (filename);

@@ -80,6 +80,11 @@ void Operation::convertIntToTimeStruct (int dayInt, int monthInt, int yearInt)
     timeinfo->tm_year = yearInt - 1900;
     timeinfo->tm_mon = monthInt - 1;
     timeinfo->tm_mday = dayInt;
+
+    timeinfo->tm_sec = 5; // <- added to have always same hour, minutes and seconds for selecting operations by date
+    timeinfo->tm_min = 5;
+    timeinfo->tm_hour = 5;
+
 };
 
 void Operation::separateStringDateToInts(string date)
