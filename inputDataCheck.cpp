@@ -161,7 +161,7 @@ map <int,int> monthsLength;
     actualDate = localtime (&timer);
     actualDate->tm_hour = 5;   actualDate->tm_min = 5; actualDate->tm_sec = 5;
     if ((actualDate->tm_year%4==0)&&(actualDate->tm_mon==1)) actualDate->tm_mday = monthsLength[13];
-    else actualDate->tm_mday = monthsLength[actualDate->tm_mon];
+    else actualDate->tm_mday = monthsLength[actualDate->tm_mon+1];
 
 
     string textDate, day, month, year;
@@ -175,4 +175,13 @@ map <int,int> monthsLength;
     day=to_string(actualDate->tm_mday);
     textDate=day+"-"+month+"-"+year;
     return textDate;
+};
+
+
+float lookForCommaAndChangeToDot (string ammountByString){
+    int stringLength=ammountByString.length();
+    for (int i=0; i<stringLength; i++){
+        if (ammountByString[i]==',') ammountByString[i]='.';
+    }
+    return stof(ammountByString);
 };

@@ -47,7 +47,7 @@ Operations::Operations(string operationName){
     loadFromXML(filename);
 };
 void Operations::addData (int userId){
-    string item, date;
+    string item, date, ammountByString;
     char choice;
     float ammount;
     cin.sync();
@@ -73,7 +73,8 @@ void Operations::addData (int userId){
     cout << "Opis operacji: ";
     getline(cin,item);
     cout << "Wartosc operacji: ";
-    cin>>ammount;
+    cin>>ammountByString;
+    ammount=lookForCommaAndChangeToDot(ammountByString);
     addNewOperation(userId, date, item, ammount);
     saveToXML(filename);
 };

@@ -12,3 +12,4 @@ string getCurrentMonthBeginingDate ();
 string getCurrentMonthEndingDate ();
 string getPastMonthBeginingDate ();
 string getPastMonthEndingDate ();
+float lookForCommaAndChangeToDot (string ammountByString);
