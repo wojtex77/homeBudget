@@ -34,12 +34,14 @@
 		</Compiler>
 		<Unit filename="Markup.cpp" />
 		<Unit filename="Markup.h" />
-		<Unit filename="dateCheck.h" />
+		<Unit filename="inputDataCheck.cpp" />
+		<Unit filename="inputDataCheck.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="operation.cpp" />
 		<Unit filename="operation.h" />
 		<Unit filename="operations.cpp" />
 		<Unit filename="operations.h" />
+		<Unit filename="programMessages.cpp" />
 		<Unit filename="programMessages.h" />
 		<Unit filename="user.cpp" />
 		<Unit filename="user.h" />
