@@ -37,6 +37,11 @@ void Operations::sortOperations (){
           allOperations.end(),
           [](Operation & one, Operation & two){return one.getTime () < two.getTime ();});
 };
+void Operations::sortSelectedOperations (){
+    sort(selectedOperations.begin(),
+          selectedOperations.end(),
+          [](Operation & one, Operation & two){return one.getTime () < two.getTime ();});
+}
 Operations::Operations(string operationName){
     setTypename(operationName);
     loadFromXML(filename);

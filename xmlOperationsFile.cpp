@@ -17,7 +17,7 @@ void xmlOperationsFile::saveToXML(vector <Operation> &allOperations){
         operationsFile.AddElem("userId",allOperations[i].getUserId());
         operationsFile.AddElem("date",allOperations[i].getDate());
         operationsFile.AddElem("item",allOperations[i].getItem());
-        operationsFile.AddElem("ammount",allOperations[i].getAmmount());
+        operationsFile.AddElem("ammount",allOperations[i].getAmmountByString());
         operationsFile.OutOfElem();
     }
     operationsFile.OutOfElem();

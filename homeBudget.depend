@@ -53,12 +53,12 @@
 	<stdlib.h>
 	<string>
 
-1546086687 source:c:\users\wojtek\documents\github\homebudget\main.cpp
+1546090150 source:c:\users\wojtek\documents\github\homebudget\main.cpp
 	<iostream>
 	<windows.h>
 	"users.h"
 	"operations.h"
-	"dateCheck.h"
+	"inputDataCheck.h"
 	"programMessages.h"
 
 1542838081 c:\users\wojtek\documents\github\homebudget\users.h
@@ -110,30 +110,30 @@
 	<stdlib.h>
 	<string>
 
-1546033005 source:c:\users\wojtek\documents\github\homebudget\operation.cpp
+1546088078 source:c:\users\wojtek\documents\github\homebudget\operation.cpp
 	"operation.h"
 
-1545947911 c:\users\wojtek\documents\github\homebudget\operation.h
+1546088078 c:\users\wojtek\documents\github\homebudget\operation.h
 	<iostream>
 	<string>
 	<sstream>
 	<time.h>
 	<vector>
 
-1546085546 source:c:\users\wojtek\documents\github\homebudget\operations.cpp
+1546087306 source:c:\users\wojtek\documents\github\homebudget\operations.cpp
 	"operations.h"
 
-1546086008 c:\users\wojtek\documents\github\homebudget\operations.h
+1546087284 c:\users\wojtek\documents\github\homebudget\operations.h
 	<iostream>
 	<vector>
 	<algorithm>
 	<ctime>
 	"operation.h"
 	"xmlOperationsFile.h"
-	"dateCheck.h"
+	"inputDataCheck.h"
 	"programMessages.h"
 
-1546030248 source:c:\users\wojtek\documents\github\homebudget\xmloperationsfile.cpp
+1546088078 source:c:\users\wojtek\documents\github\homebudget\xmloperationsfile.cpp
 	"xmloperationsFile.h"
 	<stdlib.h>
 	<string>
@@ -246,4 +246,13 @@
 
 1546086740 source:c:\users\wojtek\documents\github\homebudget\programmessages.cpp
 	"programMessages.h"
+
+1546089206 c:\users\wojtek\documents\github\homebudget\inputdatacheck.h
+	<string>
+	<map>
+	<time.h>
+	<stdlib.h>
+
+1546090196 source:c:\users\wojtek\documents\github\homebudget\inputdatacheck.cpp
+	"inputDataCheck.h"
 

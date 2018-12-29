@@ -124,4 +124,8 @@ time_t Operation::getTime (){
     return actualDate;
 };
 
+string Operation::getAmmountByString(){
+    return ammountByString;
+};
+
 

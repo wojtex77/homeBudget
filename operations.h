@@ -4,7 +4,7 @@
 #include <ctime>
 #include "operation.h"
 #include "xmlOperationsFile.h"
-#include "dateCheck.h"
+#include "inputDataCheck.h"
 #include "programMessages.h"
 
 using namespace std;
@@ -36,6 +36,7 @@ public:
     void showAllOperationsByUser (int loggedUserID);
     void showSelectedOperations ();
     void sortOperations ();
+    void sortSelectedOperations ();
     void addData (int userId);
     float getSumAllOpers (int userId);
     void selectOperationsByDateAndID (string beginingDateString, string endingDateString, int userId);

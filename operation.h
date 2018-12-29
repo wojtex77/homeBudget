@@ -41,6 +41,7 @@ public:
     string getDate ();
     string getItem ();
     float getAmmount ();
+    string getAmmountByString();
     int getDayInt ();
     int getMonthInt ();
     int getYearInt ();

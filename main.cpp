@@ -2,7 +2,7 @@
 #include <windows.h>
 #include "users.h"
 #include "operations.h"
-#include "dateCheck.h"
+#include "inputDataCheck.h"
 #include "programMessages.h"
 
 using namespace std;
@@ -19,7 +19,6 @@ void showProgramMenu (int loggedUserID, string UserName, string UserSurname){
     cout << "0. Wyloguj"<<endl;
     cout << endl << "Twoj wybor (potwierdz enterem): ";
 }
-
 void showLoginMenu () {
     system("cls");
     cout << "------Twoj Budzet Domowy------"<<endl<<endl;
@@ -28,25 +27,27 @@ void showLoginMenu () {
     cout << "0. Zakoncz"<<endl;
     cout << endl << "Twoj wybor (potwierdz enterem): ";
 }
-
 void changePassword (Users &appUsers) {
     appUsers.changePassword();
 }
-
-void presentData (string beginingDate, string endingDate, Operations& incomes, Operations& expenses, int loggedUserID)
-{
+void presentData (string beginingDate, string endingDate, Operations& incomes, Operations& expenses, int loggedUserID){
     system("cls");
     cout << "RAPORT ZA OKRES " << beginingDate << " - " << endingDate << " :"<<endl<<"-----------------------------------------------";
     cout <<endl<<endl<< "PRZYCHODY:" << endl;
     incomes.selectOperationsByDateAndID(beginingDate, endingDate, loggedUserID);
+    incomes.sortSelectedOperations();
     incomes.showSelectedOperations();
-    cout <<"_______________________________________________"<<endl<< "Suma przychodow wynosi: " << incomes.getSumSelectedOperations(loggedUserID) << " PLN" <<endl<<endl;
+    cout <<"-----------------------------------------------"<<endl<<endl;
 
     cout << "WYDATKI:" << endl;
     expenses.selectOperationsByDateAndID(beginingDate, endingDate, loggedUserID);
+    expenses.sortSelectedOperations();
     expenses.showSelectedOperations();
-    cout <<"_______________________________________________"<<endl<< "Suma wydatkow wynosi: " << expenses.getSumSelectedOperations(loggedUserID) << " PLN" <<endl<<endl;
-    cout <<endl<<"_______________________________________________"<< endl << "BILANS WYNOSI: " << incomes.getSumSelectedOperations(loggedUserID) - expenses.getSumSelectedOperations(loggedUserID)<< " PLN" << endl<<endl;
+    cout <<"-----------------------------------------------"<<endl<<endl;
+    cout << "Suma przychodow wynosi:   " << incomes.getSumSelectedOperations(loggedUserID) << " PLN" <<endl;
+    cout << "  Suma wydatkow wynosi:   " << expenses.getSumSelectedOperations(loggedUserID) << " PLN" <<endl;
+    cout <<"_______________________________________________"<< endl;
+    cout << "         BILANS WYNOSI:   " << incomes.getSumSelectedOperations(loggedUserID) - expenses.getSumSelectedOperations(loggedUserID)<< " PLN" << endl<<endl;
 
     system("pause");
 
@@ -67,6 +68,23 @@ void programMenu (int loggedUserID, string UserName, string UserSurname, Users &
             expenses.addData(loggedUserID);
             break;
         }
+        case '3': {
+            string begininigDate=getCurrentMonthBeginingDate();
+            string endingDate=getCurrentMonthEndingDate();
+            cin.sync();
+            presentData(begininigDate,endingDate, incomes, expenses,loggedUserID);
+
+            break;
+        }
+        case '4': {
+            string begininigDate=getPastMonthBeginingDate();
+            string endingDate=getPastMonthEndingDate();
+            cin.sync();
+            presentData(begininigDate,endingDate, incomes, expenses,loggedUserID);
+
+            break;
+        }
+
         case '5': {
             string begininigDate, endingDate;
             int error;
@@ -114,7 +132,6 @@ void programMenu (int loggedUserID, string UserName, string UserSurname, Users &
         }
     } while (choice!='0');
 }
-
 void logIn (Users &appUsers) {
     system("cls");
     string login, password;
@@ -141,14 +158,12 @@ void logIn (Users &appUsers) {
         Sleep(2000);
     }
 }
-
 void registerNewUser (Users &appUsers) {
     system("cls");
     appUsers.loadFromXML();
     appUsers.createNewUser();
     appUsers.saveToXML();
 }
-
 void loginMenu (Users &appUsers) {
 
     char choice=0;
@@ -177,7 +192,6 @@ void loginMenu (Users &appUsers) {
         }
     } while (choice!='0');
 }
-
 int main() {
     Users appUsers;
     loginMenu(appUsers);
