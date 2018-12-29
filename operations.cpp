@@ -1,5 +1,6 @@
 #include "operations.h"
 
+
 void Operations::addNewOperation (int userId, string date, string item, float ammount){
     Operation newOperation;
     newOperation.setUserId(userId);
@@ -53,7 +54,13 @@ void Operations::addData (int userId){
         if (choice=='t') date=getActualDataFromSystem();
         else if (choice=='n'){
             cout << "Wpisz date w formacie dd-mm-rrrr: ";
-            cin >> date;
+            do {
+                int error;
+                cin >> date;
+                error=checkDate(date);
+                if (error!=0) cout << takeProgramMessage(error)<< endl <<"Podaj date jeszcze raz: ";
+            } while (checkDate(date)!=0);
+
         }
         else cout << "Niepoprawny wybor, wpisz ""t"" lub ""n"""<< endl;
     } while (choice!='t' && choice!='n');

@@ -36,8 +36,8 @@ void changePassword (Users &appUsers) {
 void presentData (string beginingDate, string endingDate, Operations& incomes, Operations& expenses, int loggedUserID)
 {
     system("cls");
-    cout << "RAPORT ZA OKRES " << beginingDate << " - " << endingDate << " :";
-    cout <<endl<< "PRZYCHODY:" << endl;
+    cout << "RAPORT ZA OKRES " << beginingDate << " - " << endingDate << " :"<<endl<<"-----------------------------------------------";
+    cout <<endl<<endl<< "PRZYCHODY:" << endl;
     incomes.selectOperationsByDateAndID(beginingDate, endingDate, loggedUserID);
     incomes.showSelectedOperations();
     cout <<"_______________________________________________"<<endl<< "Suma przychodow wynosi: " << incomes.getSumSelectedOperations(loggedUserID) << " PLN" <<endl<<endl;
@@ -74,11 +74,15 @@ void programMenu (int loggedUserID, string UserName, string UserSurname, Users &
             cout << "Podaj date poczatkowa zakresu (dd-mm-rrrr): ";
             do {
                 cin >> begininigDate;
-                error=checkDateFormat(begininigDate);
-                if (error!=0) cout << takeProgramMessage(error)<<endl;
-            } while (checkDateFormat(begininigDate)==false);
+                error=checkDate(begininigDate);
+                if (error!=0) cout << takeProgramMessage(error)<< endl <<"Podaj date jeszcze raz: ";
+            } while (checkDate(begininigDate)!=0);
             cout << "Podaj date koncowa zakresu (dd-mm-rrrr): ";
-            cin >> endingDate;
+            do {
+                cin >> endingDate;
+                error=checkDate(endingDate);
+                if (error!=0) cout << takeProgramMessage(error)<< endl <<"Podaj date jeszcze raz: ";
+            } while (checkDate(endingDate)!=0);
 
             presentData(begininigDate,endingDate, incomes, expenses,loggedUserID);
 

@@ -4,6 +4,8 @@
 #include <ctime>
 #include "operation.h"
 #include "xmlOperationsFile.h"
+#include "dateCheck.h"
+#include "programMessages.h"
 
 using namespace std;
 
